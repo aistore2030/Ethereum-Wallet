@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href=C:\Users\Shivam\Music\Ethereum-Wallet-master\styles.css>
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates|Ubuntu+Condensed&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="inc/bootstrap.min.css">
+  <script src="inc/ethers-v4.min.js" charset="utf-8" type="text/javascript"> </script>
+  <style>
+    div#dump {
+      word-wrap: break-word;
+    }
+  </style>
+  <title>Offline Ethereum Wallet</title>
+</head>
+
+<body>
+<center>
+  <div class="tyu">
+    <h1>Ethereum-Wallet</h1>
+    <table>
+      <th>
+        <tr>
+  <td>
+    <img src="C:\Users\Shivam\Music\Ethereum-Wallet-master\Ethereum-Wallet-master\imagee.png" alt="">
+  </td>
+  <td>
+      <p>AI store is a open source Ethereum wallet.It has made by using ethers v4.its source code is available and You can verify this on <a href="https://github.com/aistore2030/Ethereum-Wallet">Ethereum wallet.<br></a>This service has not any guarantee.</p>
+	  
+  </td>
+  <p>Ethereum wallet is a free, client-side interface helping you interact with the Ethereum blockchain. <br>Our easy-to-use, open-source platform allows you to generate wallets, interact with smart contracts, and so much more.</p>
+        </tr>
+      </th>
+    </table>
+  </div>
+
+  <div class="container">
+
+    <button class="btn btn-primary btn-lg" id="generate">Generate a new Ethereum Wallet</button>
+    <form>
+      <div class="form-group">
+        <label>Mnemonic code</label>
+        <input type="text" class="form-control" id="mnemonic">
+      </div>
+
+      <div class="form-group">
+        <label>Private Key</label>
+        <input type="text" class="form-control" id="privateKey">
+      </div>
+      <div class="form-group">
+        <label>Wallet Address</label>
+        <input type="text" class="form-control" id="address">
+      </div>
+
+      <div id="dump"></div>
+    </form>
+  </div>
+  </div>
+  </div>
+
+
+  </div>
+
+
+
+
+
+
+
+
+  <script src="inc/jquery-3.3.1.slim.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $("#generate").click(function() {
+        let newWallet = ethers.Wallet.createRandom();
+        console.log(newWallet);
+
+        var walletdump = JSON.stringify(newWallet);
+        $("#dump").text(walletdump);
+
+        $("#mnemonic").val(newWallet.mnemonic);
+
+
+
+        $("#privateKey").val(newWallet.privateKey);
+
+        $("#address").val(newWallet.address);
+      });
+    });
+  </script>
+
+</center>
+
+</body>
+
+</html>
